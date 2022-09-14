@@ -60,61 +60,6 @@ const Badges = () => {
           </CCardBody>
         </CCard>
       </CCol>
-      <CCol lg={6}>
-        <CCard className="mb-4">
-          <CCardHeader>
-            <strong>React Badges</strong> <small>Contextual variations</small>
-          </CCardHeader>
-          <CCardBody>
-            <p className="text-medium-emphasis small">
-              Add any of the below-mentioned <code>color</code> props to modify the presentation of
-              a badge.
-            </p>
-            <DocsExample href="components/badge#contextual-variations">
-              <CBadge color="primary">primary</CBadge>
-              <CBadge color="success">success</CBadge>
-              <CBadge color="danger">danger</CBadge>
-              <CBadge color="warning">warning</CBadge>
-              <CBadge color="info">info</CBadge>
-              <CBadge color="light">light</CBadge>
-              <CBadge color="dark">dark</CBadge>
-            </DocsExample>
-          </CCardBody>
-        </CCard>
-        <CCard className="mb-4">
-          <CCardHeader>
-            <strong>React Badges</strong> <small>Pill badges</small>
-          </CCardHeader>
-          <CCardBody>
-            <p className="text-medium-emphasis small">
-              Apply the <code>shape=&#34;rounded-pill&#34;</code> prop to make badges rounded.
-            </p>
-            <DocsExample href="components/badge#pill-badges">
-              <CBadge color="primary" shape="rounded-pill">
-                primary
-              </CBadge>
-              <CBadge color="success" shape="rounded-pill">
-                success
-              </CBadge>
-              <CBadge color="danger" shape="rounded-pill">
-                danger
-              </CBadge>
-              <CBadge color="warning" shape="rounded-pill">
-                warning
-              </CBadge>
-              <CBadge color="info" shape="rounded-pill">
-                info
-              </CBadge>
-              <CBadge color="light" shape="rounded-pill">
-                light
-              </CBadge>
-              <CBadge color="dark" shape="rounded-pill">
-                dark
-              </CBadge>
-            </DocsExample>
-          </CCardBody>
-        </CCard>
-      </CCol>
     </CRow>
   )
 }

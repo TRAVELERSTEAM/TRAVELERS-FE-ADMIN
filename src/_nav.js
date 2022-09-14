@@ -59,11 +59,6 @@ const _nav = [
       },
       {
         component: CNavItem,
-        name: 'Breadcrumb',
-        to: '/base/breadcrumbs',
-      },
-      {
-        component: CNavItem,
         name: 'Cards',
         to: '/base/cards',
       },
@@ -71,11 +66,6 @@ const _nav = [
         component: CNavItem,
         name: 'Carousel',
         to: '/base/carousels',
-      },
-      {
-        component: CNavItem,
-        name: 'Collapse',
-        to: '/base/collapses',
       },
       {
         component: CNavItem,
@@ -94,16 +84,6 @@ const _nav = [
       },
       {
         component: CNavItem,
-        name: 'Placeholders',
-        to: '/base/placeholders',
-      },
-      {
-        component: CNavItem,
-        name: 'Popovers',
-        to: '/base/popovers',
-      },
-      {
-        component: CNavItem,
         name: 'Progress',
         to: '/base/progress',
       },
@@ -116,11 +96,6 @@ const _nav = [
         component: CNavItem,
         name: 'Tables',
         to: '/base/tables',
-      },
-      {
-        component: CNavItem,
-        name: 'Tooltips',
-        to: '/base/tooltips',
       },
     ],
   },
@@ -219,11 +194,6 @@ const _nav = [
         name: 'CoreUI Flags',
         to: '/icons/flags',
       },
-      {
-        component: CNavItem,
-        name: 'CoreUI Brands',
-        to: '/icons/brands',
-      },
     ],
   },
   {
@@ -245,11 +215,6 @@ const _nav = [
         component: CNavItem,
         name: 'Modal',
         to: '/notifications/modals',
-      },
-      {
-        component: CNavItem,
-        name: 'Toasts',
-        to: '/notifications/toasts',
       },
     ],
   },
@@ -277,21 +242,11 @@ const _nav = [
         name: 'Login',
         to: '/login',
       },
-      {
-        component: CNavItem,
-        name: 'Register',
-        to: '/register',
-      },
-      {
-        component: CNavItem,
-        name: 'Error 404',
-        to: '/404',
-      },
-      {
-        component: CNavItem,
-        name: 'Error 500',
-        to: '/500',
-      },
+      // {
+      //   component: CNavItem,
+      //   name: 'Error 404',
+      //   to: '/404',
+      // },
     ],
   },
   {

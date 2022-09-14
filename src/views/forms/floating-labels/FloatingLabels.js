@@ -7,7 +7,6 @@ import {
   CFormInput,
   CFormLabel,
   CFormFloating,
-  CFormSelect,
   CFormTextarea,
   CRow,
 } from '@coreui/react'
@@ -91,74 +90,6 @@ const FloatingLabels = () => {
                 ></CFormTextarea>
                 <CFormLabel htmlFor="floatingTextarea2">Comments</CFormLabel>
               </CFormFloating>
-            </DocsExample>
-          </CCardBody>
-        </CCard>
-      </CCol>
-      <CCol xs={12}>
-        <CCard className="mb-4">
-          <CCardHeader>
-            <strong>React Floating labels</strong> <small>Selects</small>
-          </CCardHeader>
-          <CCardBody>
-            <p className="text-medium-emphasis small">
-              Other than <code>&lt;CFormInput&gt;</code>, floating labels are only available on{' '}
-              <code>&lt;CFormSelect&gt;</code>s. They work in the same way, but unlike{' '}
-              <code>&lt;CFormInput&gt;</code>s, they&#39;ll always show the{' '}
-              <code>&lt;CFormLabel&gt;</code> in its floated state.{' '}
-              <strong>
-                Selects with <code>size</code> and <code>multiple</code> are not supported.
-              </strong>
-            </p>
-            <DocsExample href="forms/floating-labels#selects">
-              <CFormFloating>
-                <CFormSelect id="floatingSelect" aria-label="Floating label select example">
-                  <option>Open this select menu</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </CFormSelect>
-                <CFormLabel htmlFor="floatingSelect">Works with selects</CFormLabel>
-              </CFormFloating>
-            </DocsExample>
-          </CCardBody>
-        </CCard>
-      </CCol>
-      <CCol xs={12}>
-        <CCard className="mb-4">
-          <CCardHeader>
-            <strong>React Floating labels</strong> <small>Layout</small>
-          </CCardHeader>
-          <CCardBody>
-            <p className="text-medium-emphasis small">
-              When working with the CoreUI for Bootstrap grid system, be sure to place form elements
-              within column classes.
-            </p>
-            <DocsExample href="forms/floating-labels#layout">
-              <CRow xs={{ gutter: 2 }}>
-                <CCol md>
-                  <CFormFloating>
-                    <CFormInput
-                      type="email"
-                      id="floatingInputGrid"
-                      placeholder="name@example.com"
-                      defaultValue="email@example.com"
-                    />
-                    <CFormLabel htmlFor="floatingInputGrid">Email address</CFormLabel>
-                  </CFormFloating>
-                </CCol>
-                <CCol md>
-                  <CFormFloating>
-                    <CFormSelect id="floatingSelectGrid" aria-label="Floating label select example">
-                      <option>Open this select menu</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
-                    </CFormSelect>
-                    <CFormLabel htmlFor="floatingSelectGrid">Works with selects</CFormLabel>
-                  </CFormFloating>
-                </CCol>
-              </CRow>
             </DocsExample>
           </CCardBody>
         </CCard>
