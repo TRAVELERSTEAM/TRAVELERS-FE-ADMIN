@@ -2,9 +2,9 @@ import React from 'react'
 import { CCard, CCardBody, CCardHeader, CCarousel, CCarouselItem, CCol, CRow } from '@coreui/react'
 import { DocsExample } from 'src/components'
 
-import AngularImg from 'src/assets/images/angular.jpg'
-import ReactImg from 'src/assets/images/react.jpg'
-import VueImg from 'src/assets/images/vue.jpg'
+import AngularImg from 'src/assets/angular.jpg'
+import ReactImg from 'src/assets/react.jpg'
+import VueImg from 'src/assets/vue.jpg'
 
 const Carousels = () => {
   return (

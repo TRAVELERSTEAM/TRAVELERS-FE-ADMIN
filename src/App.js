@@ -1,6 +1,10 @@
 import React, { Component, Suspense } from 'react'
-import { HashRouter, Route, Routes } from 'react-router-dom'
+import { Route, Routes, BrowserRouter } from 'react-router-dom'
 import './scss/style.scss'
+import UIexample from './views/UIexample'
+import Calendar from './views/pages/reservation/index'
+import Main from './views/Main'
+import NotFound from './views/NotFound'
 
 const loading = (
   <div className="pt-3 text-center">
@@ -8,23 +12,23 @@ const loading = (
   </div>
 )
 
-// Containers
-const DefaultLayout = React.lazy(() => import('./layout/DefaultLayout'))
-
 // Pages
 const Login = React.lazy(() => import('./views/pages/login/Login'))
 
 class App extends Component {
   render() {
     return (
-      <HashRouter>
+      <BrowserRouter>
         <Suspense fallback={loading}>
           <Routes>
-            <Route exact path="/login" name="Login Page" element={<Login />} />
-            <Route path="*" name="Home" element={<DefaultLayout />} />
+            <Route index element={<Main />} />
+            <Route path="/login" name="Login Page" element={<Login />} />
+            <Route path="/reservation" element={<Calendar />} />
+            <Route path="/ui" element={<UIexample />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
-      </HashRouter>
+      </BrowserRouter>
     )
   }
 }

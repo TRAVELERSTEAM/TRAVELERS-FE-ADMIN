@@ -1,8 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import { CNav, CNavItem, CNavLink, CTabContent, CTabPane } from '@coreui/react'
-import CIcon from '@coreui/icons-react'
-import { cilCode, cilMediaPlay } from '@coreui/icons'
 
 const DocsExample = (props) => {
   const { children, href } = props
@@ -14,14 +12,12 @@ const DocsExample = (props) => {
       <CNav variant="tabs">
         <CNavItem>
           <CNavLink href="#" active>
-            <CIcon icon={cilMediaPlay} className="me-2" />
-            Preview
+            적용 예시
           </CNavLink>
         </CNavItem>
         <CNavItem>
           <CNavLink href={_href} target="_blank">
-            <CIcon icon={cilCode} className="me-2" />
-            Code
+            공식 문서 보기 👀
           </CNavLink>
         </CNavItem>
       </CNav>
