@@ -4,7 +4,7 @@ import { ko } from 'date-fns/esm/locale'
 
 import 'react-datepicker/dist/react-datepicker.css'
 
-const Calender = () => {
+const Calendar = () => {
   const [startDate, setStartDate] = useState(new Date())
   const [endDate, setEndDate] = useState(null)
   const onChange = (dates) => {
@@ -27,4 +27,4 @@ const Calender = () => {
     </>
   )
 }
-export default Calender
+export default Calendar

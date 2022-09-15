@@ -1,10 +1,10 @@
 import React from 'react'
-import Calender from 'src/components/Calender'
+import Calendar from 'src/components/Calendar'
 
 function index() {
   return (
     <>
-      <Calender />
+      <Calendar />
     </>
   )
 }
