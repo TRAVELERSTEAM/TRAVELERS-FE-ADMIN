@@ -1,25 +1,12 @@
 import React, { useState } from 'react'
 import * as Yup from 'yup'
-// import { Link } from 'react-router-dom'
-import {
-  CButton,
-  CCard,
-  CCardBody,
-  CCardGroup,
-  CCol,
-  CContainer,
-  // CForm,
-  // CFormInput,
-  // CInputGroup,
-  // CInputGroupText,
-  CRow,
-} from '@coreui/react'
-// import CIcon from '@coreui/icons-react'
-// import { cilLockLocked, cilUser } from '@coreui/icons'
+import { CButton, CCard, CCardBody, CCardGroup, CCol, CContainer, CRow } from '@coreui/react'
 import { Form, FormikProvider, useFormik } from 'formik'
 import { useNavigate } from 'react-router-dom'
-import { Icon, IconButton, InputAdornment, Stack, TextField } from '@mui/material'
-import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai'
+import { IconButton, InputAdornment, Stack, TextField } from '@mui/material'
+import { AiFillEye, AiFillEyeInvisible, AiFillGoogleCircle } from 'react-icons/ai'
+import { RiKakaoTalkFill } from 'react-icons/ri'
+import { SiNaver } from 'react-icons/si'
 import { LoadingButton } from '@mui/lab'
 
 const Login = () => {
@@ -35,7 +22,6 @@ const Login = () => {
     initialValues: {
       email: '',
       password: '',
-      // remember: true,
     },
     validationSchema: LoginSchema,
     onSubmit: () => {
@@ -50,48 +36,18 @@ const Login = () => {
   }
 
   return (
-    <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
+    <div className="bg-light min-vh-100 d-flex align-items-center">
       <CContainer>
         <CRow className="justify-content-center">
           <CCol md={8}>
             <CCardGroup>
               <CCard className="p-4">
-                {/* <CCardBody>
-                  <CForm>
-                    <h1>Login</h1>
-                    <p className="text-medium-emphasis">Sign In to your account</p>
-                    <CInputGroup className="mb-3">
-                      <CInputGroupText>
-                        <CIcon icon={cilUser} />
-                      </CInputGroupText>
-                      <CFormInput type="email" placeholder="Email" autoComplete="email" />
-                    </CInputGroup>
-                    <CInputGroup className="mb-4">
-                      <CInputGroupText>
-                        <CIcon icon={cilLockLocked} />
-                      </CInputGroupText>
-                      <CFormInput
-                        type="password"
-                        placeholder="Password"
-                        autoComplete="current-password"
-                      />
-                    </CInputGroup>
-                    <CRow>
-                      <CCol xs={6}>
-                        <CButton color="dark" className="px-4">
-                          Login
-                        </CButton>
-                      </CCol>
-                    </CRow>
-                  </CForm>
-                </CCardBody> */}
+                <h1>Login</h1>
+                <p className="text-medium-emphasis">Sign In to your account</p>
                 <FormikProvider value={formik}>
                   <Form autoComplete="off" noValidate onSubmit={handleSubmit}>
-                    <h1>Login</h1>
-                    <p className="text-medium-emphasis">Sign In to your account</p>
                     <Stack spacing={3}>
                       <TextField
-                        fullWidth
                         autoComplete="username"
                         type="email"
                         label="Email address"
@@ -99,9 +55,7 @@ const Login = () => {
                         error={Boolean(touched.email && errors.email)}
                         helperText={touched.email && errors.email}
                       />
-
                       <TextField
-                        fullWidth
                         autoComplete="current-password"
                         type={showPassword ? 'text' : 'password'}
                         label="Password"
@@ -110,7 +64,7 @@ const Login = () => {
                           endAdornment: (
                             <InputAdornment position="end">
                               <IconButton onClick={handleShowPassword} edge="end">
-                                <Icon icon={showPassword ? AiFillEye : AiFillEyeInvisible} />
+                                {showPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
                               </IconButton>
                             </InputAdornment>
                           ),
@@ -119,14 +73,13 @@ const Login = () => {
                         helperText={touched.password && errors.password}
                       />
                     </Stack>
-
                     <LoadingButton
                       size="large"
                       type="submit"
                       variant="contained"
                       className="mt-4"
                       loading={isSubmitting}
-                      bgcolor="primary.light"
+                      color="primary"
                     >
                       Login
                     </LoadingButton>
@@ -138,9 +91,18 @@ const Login = () => {
                   <div>
                     <h2>SNS 로그인</h2>
                     <div className="d-grid gap-2 col-6 mx-auto mt-5">
-                      <CButton className="google">Google 로그인</CButton>
-                      <CButton className="kakao">Kakao 로그인</CButton>
-                      <CButton className="naver">Naver 로그인</CButton>
+                      <CButton className="google sns">
+                        <AiFillGoogleCircle />
+                        <span>Google 로그인</span>
+                      </CButton>
+                      <CButton className="kakao sns">
+                        <RiKakaoTalkFill />
+                        <span>Kakao 로그인</span>
+                      </CButton>
+                      <CButton className="naver sns">
+                        <SiNaver />
+                        <span>Naver 로그인</span>
+                      </CButton>
                     </div>
                   </div>
                 </CCardBody>
