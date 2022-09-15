@@ -1,4 +1,12 @@
 // Here you can add other styles
+.sns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
 .naver {
   color: #01C73C;
   background-color: transparent;
