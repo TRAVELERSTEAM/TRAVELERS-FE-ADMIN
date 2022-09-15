@@ -1,30 +1,28 @@
 import React, { useState } from 'react'
-import DatePicker from 'react-datepicker'
-import { ko } from 'date-fns/esm/locale'
-
-import 'react-datepicker/dist/react-datepicker.css'
+//react-date-range
+import { DateRange } from 'react-date-range'
+import { ko } from 'react-date-range/dist/locale'
+import 'react-date-range/dist/styles.css' // main style file
+import 'react-date-range/dist/theme/default.css' // theme css file
 
 const Calendar = () => {
-  const [startDate, setStartDate] = useState(new Date())
-  const [endDate, setEndDate] = useState(null)
-  const onChange = (dates) => {
-    const [start, end] = dates
-    setStartDate(start)
-    setEndDate(end)
-  }
+  const [state, setState] = useState([
+    {
+      startDate: new Date(),
+      endDate: new Date(),
+      key: 'selection',
+    },
+  ])
 
   return (
-    <>
-      <DatePicker
-        locale={ko}
-        selected={startDate}
-        onChange={onChange}
-        startDate={startDate}
-        endDate={endDate}
-        selectsRange
-        inline
-      />
-    </>
+    <DateRange
+      editableDateInputs={true}
+      onChange={(date) => setState([date.selection])}
+      moveRangeOnFirstSelection={false}
+      ranges={state}
+      locale={ko}
+    ></DateRange>
   )
 }
+
 export default Calendar
