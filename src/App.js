@@ -1,10 +1,10 @@
 import React, { Component, Suspense } from 'react'
 import { Route, Routes, BrowserRouter } from 'react-router-dom'
 import './scss/style.scss'
-import UIexample from './views/UIexample'
-import Calendar from './views/pages/reservation/index'
-import Main from './views/Main'
-import NotFound from './views/NotFound'
+import UIexample from './pages/UIexample'
+import Calendar from './pages/reservation/index'
+import Main from './pages/Main'
+import NotFound from './pages/NotFound'
 
 const loading = (
   <div className="pt-3 text-center">
@@ -13,7 +13,7 @@ const loading = (
 )
 
 // Pages
-const Login = React.lazy(() => import('./views/pages/login/Login'))
+const Login = React.lazy(() => import('./pages/login/Login'))
 
 class App extends Component {
   render() {

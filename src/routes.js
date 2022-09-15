@@ -1,6 +1,6 @@
 import React from 'react'
-const Calendar = React.lazy(() => import('./views/pages/reservation/index'))
-const UIexample = React.lazy(() => import('./views/UIexample'))
+const Calendar = React.lazy(() => import('./pages/reservation/index'))
+const UIexample = React.lazy(() => import('./pages/UIexample'))
 
 // 적용 예시
 // const Colors = React.lazy(() => import('./views/theme/colors/Colors'))
