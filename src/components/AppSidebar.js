@@ -14,6 +14,7 @@ import CIcon from '@coreui/icons-react'
 import { AppSidebarNav } from './AppSidebarNav'
 
 import logo from './../assets/images/logo/logo.png'
+import sLogo from './../assets/images/logo/s-logo.png'
 import { sygnet } from 'src/assets/brand/sygnet'
 
 import SimpleBar from 'simplebar-react'
@@ -38,9 +39,9 @@ const AppSidebar = () => {
     >
       <CSidebarBrand className="d-none d-md-flex" to="/">
         <CBreadcrumbItem href="/" style={{ listStyle: 'none' }}>
-          <CImage fluid src={logo} width={180} />
+          <CImage className="sidebar-brand-full" fluid src={logo} width={180} />
         </CBreadcrumbItem>
-        <CIcon className="sidebar-brand-narrow" icon={sygnet} height={35} />
+        <CImage className="sidebar-brand-narrow" fluid src={sLogo} width={25} />
       </CSidebarBrand>
       <CSidebarNav>
         <SimpleBar>
