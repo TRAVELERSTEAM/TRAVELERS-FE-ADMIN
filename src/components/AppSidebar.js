@@ -9,13 +9,11 @@ import {
   CSidebarToggler,
   CBreadcrumbItem,
 } from '@coreui/react'
-import CIcon from '@coreui/icons-react'
 
 import { AppSidebarNav } from './AppSidebarNav'
 
 import logo from './../assets/images/logo/logo.png'
 import sLogo from './../assets/images/logo/s-logo.png'
-import { sygnet } from 'src/assets/brand/sygnet'
 
 import SimpleBar from 'simplebar-react'
 import 'simplebar/dist/simplebar.min.css'
