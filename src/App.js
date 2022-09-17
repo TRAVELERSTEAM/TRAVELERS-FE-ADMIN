@@ -5,15 +5,13 @@ import UIexample from './pages/UIexample'
 import Calendar from './pages/reservation/index'
 import Main from './pages/Main'
 import NotFound from './pages/NotFound'
+import Login from './pages/login'
 
 const loading = (
   <div className="pt-3 text-center">
     <div className="sk-spinner sk-spinner-pulse"></div>
   </div>
 )
-
-// Pages
-const Login = React.lazy(() => import('./views/pages/login'))
 
 function App() {
   return (

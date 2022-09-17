@@ -17,7 +17,8 @@ const _nav = [
     items: [
       {
         component: CNavItem,
-        name: '메뉴 영역1',
+        name: '로그인',
+        to: '/login',
       },
       {
         component: CNavItem,
