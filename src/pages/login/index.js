@@ -1,12 +1,10 @@
 import React, { useState } from 'react'
 import * as Yup from 'yup'
-import { CButton, CCard, CCardBody, CCardGroup, CCol, CContainer, CRow } from '@coreui/react'
+import { CCard, CCardBody, CCardGroup, CCol, CContainer, CRow } from '@coreui/react'
 import { Form, FormikProvider, useFormik } from 'formik'
 import { useNavigate } from 'react-router-dom'
 import { IconButton, InputAdornment, Stack, TextField } from '@mui/material'
-import { AiFillEye, AiFillEyeInvisible, AiFillGoogleCircle } from 'react-icons/ai'
-import { RiKakaoTalkFill } from 'react-icons/ri'
-import { SiNaver } from 'react-icons/si'
+import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai'
 import { LoadingButton } from '@mui/lab'
 
 const Login = () => {
@@ -14,8 +12,8 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false)
 
   const LoginSchema = Yup.object().shape({
-    email: Yup.string().email('Email must be a valid email address').required('Email is required'),
-    password: Yup.string().required('Password is required'),
+    email: Yup.string().email('이메일 형식이 아닙니다').required('이메일을 적어주세요'),
+    password: Yup.string().required('비밀번호를 적어주세요'),
   })
 
   const formik = useFormik({
@@ -42,15 +40,15 @@ const Login = () => {
           <CCol md={8}>
             <CCardGroup>
               <CCard className="p-4">
-                <h1>Login</h1>
-                <p className="text-medium-emphasis">Sign In to your account</p>
+                <h1>로그인</h1>
+                <p className="text-medium-emphasis">관리자 계정으로 로그인해 주세요.</p>
                 <FormikProvider value={formik}>
                   <Form autoComplete="off" noValidate onSubmit={handleSubmit}>
                     <Stack spacing={3}>
                       <TextField
                         autoComplete="username"
                         type="email"
-                        label="Email address"
+                        label="이메일"
                         {...getFieldProps('email')}
                         error={Boolean(touched.email && errors.email)}
                         helperText={touched.email && errors.email}
@@ -58,7 +56,7 @@ const Login = () => {
                       <TextField
                         autoComplete="current-password"
                         type={showPassword ? 'text' : 'password'}
-                        label="Password"
+                        label="비밀번호"
                         {...getFieldProps('password')}
                         InputProps={{
                           endAdornment: (
@@ -81,28 +79,17 @@ const Login = () => {
                       loading={isSubmitting}
                       color="primary"
                     >
-                      Login
+                      로그인
                     </LoadingButton>
                   </Form>
                 </FormikProvider>
               </CCard>
               <CCard className="text-white bg-dark py-5" style={{ width: '44%' }}>
-                <CCardBody className="text-center">
+                <CCardBody className="text-center d-flex align-items-center">
                   <div>
-                    <h2>SNS 로그인</h2>
+                    <h2>관리자 페이지</h2>
                     <div className="d-grid gap-2 col-6 mx-auto mt-5">
-                      <CButton className="google sns">
-                        <AiFillGoogleCircle />
-                        <span>Google 로그인</span>
-                      </CButton>
-                      <CButton className="kakao sns">
-                        <RiKakaoTalkFill />
-                        <span>Kakao 로그인</span>
-                      </CButton>
-                      <CButton className="naver sns">
-                        <SiNaver />
-                        <span>Naver 로그인</span>
-                      </CButton>
+                      <p>관리자가 아니시라면 해당 사이트를 이용하실 수 없습니다.</p>
                     </div>
                   </div>
                 </CCardBody>
