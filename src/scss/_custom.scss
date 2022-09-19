@@ -1,1 +1,38 @@
 // Here you can add other styles
+.sns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.naver {
+  color: #01C73C;
+  background-color: transparent;
+  border: 1px solid #01C73C;
+  &:hover {
+    background-color: #01C73C;
+    border: 1px solid #01C73C;
+  }
+}
+
+.kakao {
+  color: #F7C700;
+  background-color: transparent;
+  border: 1px solid #F7C700;
+  &:hover {
+    background-color: #F7C700;
+    border: 1px solid #F7C700;
+  }
+}
+
+.google {
+  color: #CC3731;
+  background-color: transparent;
+  border: 1px solid #CC3731;
+  &:hover {
+    background-color: #CC3731;
+    border: 1px solid #CC3731;
+  }
+}
