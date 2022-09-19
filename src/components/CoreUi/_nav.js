@@ -22,6 +22,11 @@ const _nav = [
       },
       {
         component: CNavItem,
+        name: '상품 관리',
+        to: '/product',
+      },
+      {
+        component: CNavItem,
         name: '메뉴 영역2',
       },
     ],

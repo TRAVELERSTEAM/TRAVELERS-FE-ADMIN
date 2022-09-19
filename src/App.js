@@ -6,6 +6,7 @@ import Calendar from './pages/reservation/index'
 import Main from './pages/Main'
 import NotFound from './pages/NotFound'
 import Login from './pages/login'
+import Product from './pages/product'
 
 const loading = (
   <div className="pt-3 text-center">
@@ -22,6 +23,7 @@ function App() {
           <Route path="/login" name="Login Page" element={<Login />} />
           <Route path="/reservation" element={<Calendar />} />
           <Route path="/ui" element={<UIexample />} />
+          <Route path="/product" element={<Product />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
