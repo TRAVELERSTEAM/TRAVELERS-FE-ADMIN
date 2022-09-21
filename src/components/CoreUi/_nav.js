@@ -22,6 +22,11 @@ const _nav = [
       },
       {
         component: CNavItem,
+        name: '회원 정보 수정',
+        to: '/useredit',
+      },
+      {
+        component: CNavItem,
         name: '메뉴 영역2',
       },
     ],
