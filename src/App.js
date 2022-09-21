@@ -7,6 +7,9 @@ import Main from './pages/Main'
 import NotFound from './pages/NotFound'
 import Login from './pages/login'
 
+//후에 상품 관련 페이지안에 넣을 예정
+import ProductList from './components/ProductList'
+
 const loading = (
   <div className="pt-3 text-center">
     <div className="sk-spinner sk-spinner-pulse"></div>
@@ -20,6 +23,7 @@ function App() {
         <Routes>
           <Route index element={<Main />} />
           <Route path="/login" name="Login Page" element={<Login />} />
+          <Route path="/productlist" element={<ProductList />} />
           <Route path="/reservation" element={<Reservation />} />
           <Route path="/ui" element={<UIexample />} />
           <Route path="*" element={<NotFound />} />
