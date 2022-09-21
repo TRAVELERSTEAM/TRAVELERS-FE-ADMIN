@@ -2,7 +2,7 @@ import React, { Suspense } from 'react'
 import { Route, Routes, BrowserRouter } from 'react-router-dom'
 import './scss/style.scss'
 import UIexample from './pages/UIexample'
-import Calendar from './pages/reservation/index'
+import Reservation from './pages/reservation/index'
 import Main from './pages/Main'
 import NotFound from './pages/NotFound'
 import Login from './pages/login'
@@ -20,7 +20,7 @@ function App() {
         <Routes>
           <Route index element={<Main />} />
           <Route path="/login" name="Login Page" element={<Login />} />
-          <Route path="/reservation" element={<Calendar />} />
+          <Route path="/reservation" element={<Reservation />} />
           <Route path="/ui" element={<UIexample />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
