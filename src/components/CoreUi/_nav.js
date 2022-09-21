@@ -27,7 +27,12 @@ const _nav = [
       },
       {
         component: CNavItem,
-        name: '메뉴 영역2',
+        name: '예약 목록',
+        to: '/reservation',
+      },
+      {
+        component: CNavItem,
+        name: '메뉴 영역3',
       },
     ],
   },

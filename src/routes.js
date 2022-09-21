@@ -1,5 +1,4 @@
 import React from 'react'
-const Calendar = React.lazy(() => import('./pages/reservation/index'))
 const UIexample = React.lazy(() => import('./pages/UIexample'))
 
 // 적용 예시
@@ -8,7 +7,6 @@ const UIexample = React.lazy(() => import('./pages/UIexample'))
 
 const routes = [
   { path: '/ui', element: UIexample },
-  { path: '/calendar', name: 'Calendar', element: Calendar },
 
   // 적용 예시
   // { path: '/theme/colors', name: 'Colors', element: Colors },
