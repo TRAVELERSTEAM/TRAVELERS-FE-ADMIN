@@ -2,19 +2,17 @@ import React, { Suspense } from 'react'
 import { Route, Routes, BrowserRouter } from 'react-router-dom'
 import './scss/style.scss'
 import UIexample from './pages/UIexample'
-import Calendar from './pages/reservation/index'
+import Reservation from './pages/reservation/index'
 import Main from './pages/Main'
 import NotFound from './pages/NotFound'
 import User from './pages/user'
+import Login from './pages/login'
 
 const loading = (
   <div className="pt-3 text-center">
     <div className="sk-spinner sk-spinner-pulse"></div>
   </div>
 )
-
-// Pages
-const Login = React.lazy(() => import('./pages/login/Login'))
 
 function App() {
   return (
@@ -24,7 +22,7 @@ function App() {
           <Route index element={<Main />} />
           <Route path="/login" name="Login Page" element={<Login />} />
           <Route path="/user" name="User" element={<User />} />
-          <Route path="/reservation" element={<Calendar />} />
+          <Route path="/reservation" element={<Reservation />} />
           <Route path="/ui" element={<UIexample />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
