@@ -1,65 +1,81 @@
-import React from 'react'
-import { CTable, CPagination, CPaginationItem } from '@coreui/react'
+import React, { useState, useEffect } from 'react'
+import { DataGrid } from '@mui/x-data-grid'
+const initRows = [
+  {
+    id: 1,
+    name: 'a',
+    phone: '112312323',
+    people: 4,
+    createDate: 123123123,
+    updateDate: 123123123,
+    status: '구매 신청',
+  },
+  {
+    id: 2,
+    name: 'b',
+    phone: '123123123',
+    people: 3,
+    createDate: 123123123,
+    updateDate: 123123312,
+    status: '구매 확정',
+  },
+  {
+    id: 3,
+    name: 'c',
+    phone: '123123123',
+    people: 2,
+    createDate: 123123123,
+    updateDate: 123123312,
+    status: '구매 취소',
+  },
+]
 
 function ReservationProduct() {
+  const [rows, setRows] = useState(initRows)
+
+  useEffect(() => {
+    console.log(setRows)
+  }, [])
+
+  // API fetchData로 데이터 불러와야함
+
   const columns = [
     {
-      key: 'id',
-      label: '#',
-      _props: { scope: 'col' },
+      field: 'id',
+      headerName: '예약 번호',
     },
     {
-      key: 'email',
-      label: '이메일',
-      _props: { scope: 'col' },
+      field: 'name',
+      editable: true,
+      headerName: '이름',
     },
     {
-      key: 'phone',
-      label: '연락처',
-      _props: { scope: 'col' },
+      field: 'phone',
+      headerName: '연락처',
     },
     {
-      key: 'comment',
-      label: '문의사항',
-      _props: { scope: 'col' },
+      field: 'people',
+      headerName: '희망 인원',
+      editable: true,
+      type: 'number',
     },
     {
-      key: 'status',
-      label: '구매 상태',
-      _props: { scope: 'col' },
-    },
-  ]
-  const items = [
-    {
-      id: 1,
-      email: 'a@a.com',
-      phone: '123123123',
-      comment: '없음',
-      status: '신청',
+      field: 'createDate',
+      headerName: '구매 신청일',
+      type: 'date',
     },
     {
-      id: 2,
-      email: 'a@a.com',
-      phone: '123123123',
-      comment: '없음',
-      status: '확정',
-    },
-    {
-      id: 3,
-      email: 'a@a.com',
-      phone: '123123123',
-      comment: '없음',
-      status: '거절',
+      field: 'status',
+      headerName: '신청 상태',
+      type: 'singleSelect',
+      valueOptions: ['구매 신청', '구매 확정', '구매 취소'],
     },
   ]
 
   return (
-    <>
-      <CTable columns={columns} items={items} />
-      <CPagination>
-        <CPaginationItem>1</CPaginationItem>
-      </CPagination>
-    </>
+    <div style={{ height: 300, width: '100%' }}>
+      <DataGrid rows={rows} columns={columns} experimentalFeatures={{ newEditingApi: true }} />
+    </div>
   )
 }
 
