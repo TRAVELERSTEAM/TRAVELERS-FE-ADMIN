@@ -1,8 +1,8 @@
 import React from 'react'
 const UIexample = React.lazy(() => import('./pages/UIexample'))
+// const  = React.lazy(() => import('./views/theme/colors/Colors'))
 
 // 적용 예시
-// const Colors = React.lazy(() => import('./views/theme/colors/Colors'))
 // const Typography = React.lazy(() => import('./views/theme/typography/Typography'))
 
 const routes = [

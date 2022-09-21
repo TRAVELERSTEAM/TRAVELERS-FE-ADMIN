@@ -8,17 +8,16 @@ const _nav = [
   {
     component: CNavItem,
     name: '⭐UI예시보기(메뉴 영역)',
-    to: '/ui',
+    to: 'ui',
   },
   {
     component: CNavGroup,
     name: '그룹메뉴 타이틀 영역',
-
     items: [
       {
         component: CNavItem,
         name: '로그인',
-        to: '/login',
+        to: '/',
       },
       {
         component: CNavItem,
@@ -27,7 +26,8 @@ const _nav = [
       },
       {
         component: CNavItem,
-        name: '메뉴 영역3',
+        name: '상품 목록',
+        to: '/productlist',
       },
     ],
   },

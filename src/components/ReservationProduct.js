@@ -73,9 +73,12 @@ function ReservationProduct() {
   ]
 
   return (
-    <div style={{ height: 300, width: '100%' }}>
-      <DataGrid rows={rows} columns={columns} experimentalFeatures={{ newEditingApi: true }} />
-    </div>
+    <DataGrid
+      autoHeight
+      rows={rows}
+      columns={columns}
+      experimentalFeatures={{ newEditingApi: true }}
+    />
   )
 }
 

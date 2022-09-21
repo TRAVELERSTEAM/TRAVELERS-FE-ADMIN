@@ -1,15 +1,14 @@
 import React from 'react'
-import { AppContent, AppSidebar, AppFooter } from 'src/components/CoreUi'
+// 추후 페이지 연결시 같이 적용예정
+// AppContent
+import { AppSidebar } from 'src/components/CoreUi'
+import { Outlet } from 'react-router-dom'
+
 function Main() {
   return (
     <>
-      <AppSidebar />
-      <div className="wrapper d-flex flex-column min-vh-100 bg-light">
-        <div className="body flex-grow-1 px-3">
-          <AppContent />
-        </div>
-        <AppFooter />
-      </div>
+      <AppSidebar>{/* <AppContent /> */}</AppSidebar>
+      <Outlet />
     </>
   )
 }
