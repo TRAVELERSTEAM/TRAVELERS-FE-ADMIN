@@ -123,9 +123,12 @@ function ProductList() {
   ]
 
   return (
-    <div style={{ height: 600, width: '100%' }}>
-      <DataGrid rows={rows} columns={columns} />
-    </div>
+    <DataGrid
+      // style={{ paddingLeft: '260px' }}
+      rows={rows}
+      columns={columns}
+      autoHeight
+    />
   )
 }
 
