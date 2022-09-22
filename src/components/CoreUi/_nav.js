@@ -8,26 +8,27 @@ const _nav = [
   {
     component: CNavItem,
     name: '⭐UI예시보기(메뉴 영역)',
-    to: 'ui',
+    to: '/ui',
+  },
+  {
+    component: CNavItem,
+    name: '로그인',
+    to: '/',
   },
   {
     component: CNavGroup,
     name: '그룹메뉴 타이틀 영역',
+    to: '/menu',
     items: [
       {
         component: CNavItem,
-        name: '로그인',
-        to: '/',
-      },
-      {
-        component: CNavItem,
         name: '예약 목록',
-        to: '/reservation',
+        to: '/menu/reservation',
       },
       {
         component: CNavItem,
         name: '상품 목록',
-        to: '/productlist',
+        to: '/menu/productlist',
       },
     ],
   },

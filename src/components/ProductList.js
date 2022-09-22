@@ -122,7 +122,14 @@ function ProductList() {
     },
   ]
 
-  return <DataGrid rows={rows} columns={columns} autoHeight />
+  return (
+    <DataGrid
+      // style={{ paddingLeft: '260px' }}
+      rows={rows}
+      columns={columns}
+      autoHeight
+    />
+  )
 }
 
 export default ProductList

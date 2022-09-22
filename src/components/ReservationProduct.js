@@ -74,6 +74,7 @@ function ReservationProduct() {
 
   return (
     <DataGrid
+      // style={{ paddingLeft: '260px' }}
       autoHeight
       rows={rows}
       columns={columns}
