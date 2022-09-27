@@ -25,23 +25,23 @@ function App() {
           <Route index element={<Login />} />
           <Route path="/" element={<Main />}>
             {/* 회원정보 목록 */}
-            <Route path="/user" element={<User />} />
+            <Route path="user" element={<User />} />
             {/* 회원정보 수정 */}
-            <Route path="/useredit" element={<UserEdit />} />
+            <Route path="useredit" element={<UserEdit />} />
             {/* 상품 관리 */}
-            <Route path="/product" element={<ProductList />}>
+            <Route path="product" element={<Main />}>
               {/* 상품등록 - 상품 목록 - 예약 목록 */}
-              <Route path="/product/addproduct" element={<AddProduct />} />
+              {/* <Route path="/product/addproduct" element={<AddProduct />} /> */}
               <Route path="/product/productlist" element={<ProductList />} />
               <Route path="/product/reservation" element={<ReservationProduct />} />
             </Route>
             {/* 컨텐츠 관리 */}
-            <Route path="/management" element={<Notice />}>
-              {/* 공지사항 관리 - 자료실 관리 - 후기 관리 */}
-              <Route path="/management/notice" element={<Notice />} />
+            {/* <Route path="/management" element={<Notice />}> */}
+            {/* 공지사항 관리 - 자료실 관리 - 후기 관리 */}
+            {/* <Route path="/management/notice" element={<Notice />} />
               <Route path="/management/reference" element={<Reference />} />
               <Route path="/management/review" element={<Review />} />
-            </Route>
+            </Route> */}
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

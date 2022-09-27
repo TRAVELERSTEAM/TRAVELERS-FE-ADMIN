@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react'
-import { Navigate, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import { CContainer, CSpinner } from '@coreui/react'
 
 // routes config
@@ -12,12 +12,9 @@ const AppContent = () => {
         <Routes>
           {routes.map((route, idx) => {
             return (
-              route.element && (
-                <Route key={idx} path={route.path} name={route.name} element={<route.element />} />
-              )
+              route.element && <Route key={idx} path={route.path} element={<route.element />} />
             )
           })}
-          <Route path="/" element={<Navigate to="menu" replace />} />
         </Routes>
       </Suspense>
     </CContainer>
