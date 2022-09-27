@@ -33,6 +33,7 @@ const ThemeView = () => {
 
 const ThemeColor = ({ className, children }) => {
   const classes = classNames(className, 'theme-color w-75 rounded mb-3')
+  console.log(classes)
   return (
     <CCol xs={12} sm={6} md={4} xl={2} className="mb-4">
       <div className={classes} style={{ paddingTop: '75%' }}></div>

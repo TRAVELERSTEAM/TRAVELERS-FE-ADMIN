@@ -7,6 +7,7 @@ import User from './pages/user'
 import Login from './pages/login'
 import UserEdit from './pages/userEdit'
 import ReservationProduct from './components/ReservationProduct'
+import AddProduct from './pages/product/addproduct'
 
 //후에 상품 관련 페이지안에 넣을 예정
 import ProductList from './components/ProductList'
