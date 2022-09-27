@@ -5,6 +5,7 @@ import Main from './pages/Main'
 import NotFound from './pages/NotFound'
 import User from './pages/user'
 import Login from './pages/login'
+import UserEdit from './pages/userEdit'
 import ReservationProduct from './components/ReservationProduct'
 
 //후에 상품 관련 페이지안에 넣을 예정

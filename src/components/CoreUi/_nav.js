@@ -24,6 +24,11 @@ const _nav = [
     icon: <CIcon icon={cilUser} customClassName="nav-icon" />,
   },
   {
+    component: CNavItem,
+    name: '회원 정보 수정',
+    to: '/useredit',
+  },
+  {
     component: CNavGroup,
     name: '그룹메뉴 타이틀 영역',
     to: '/menu',
