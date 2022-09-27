@@ -1,8 +1,8 @@
 import { CButton, CContainer } from '@coreui/react'
 import React, { useRef, useState } from 'react'
-import TextEditor from 'src/components/textEditor/TextEditor'
+// import TextEditor from 'src/components/textEditor/TextEditor'
 
-const Index = () => {
+const AddProduct = () => {
   const [value, setValue] = useState(null)
   const [showImages, setShowImages] = useState([])
   const quillRef = useRef()
@@ -83,12 +83,12 @@ const Index = () => {
             </div>
           </div>
           <div>
-            <TextEditor
+            {/* <TextEditor
               ref={quillRef}
               value={value}
               setValue={setValue}
               placeHolder={'상품 상세 페이지를 작성하세요!'}
-            />
+            /> */}
             <button onClick={buttonHandler}>console</button>
           </div>
         </div>
@@ -97,4 +97,4 @@ const Index = () => {
   )
 }
 
-export default Index
+export default AddProduct
