@@ -3,7 +3,7 @@ import React, { useRef, useState } from 'react'
 // import TextEditor from 'src/components/textEditor/TextEditor'
 
 const AddProduct = () => {
-  const [value, setValue] = useState(null)
+  // const [value, setValue] = useState(null)
   const [showImages, setShowImages] = useState([])
   const quillRef = useRef()
 
