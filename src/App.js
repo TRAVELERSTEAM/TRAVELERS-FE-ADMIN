@@ -32,7 +32,7 @@ function App() {
             {/* 상품 관리 */}
             <Route path="product" element={<Main />}>
               {/* 상품등록 - 상품 목록 - 예약 목록 */}
-              {/* <Route path="/product/addproduct" element={<AddProduct />} /> */}
+              <Route path="/product/addproduct" element={<AddProduct />} />
               <Route path="/product/productlist" element={<ProductList />} />
               <Route path="/product/reservation" element={<ReservationProduct />} />
             </Route>
