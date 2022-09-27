@@ -7,6 +7,7 @@ import {
   CDropdownItem,
   CDropdownMenu,
   CDropdownToggle,
+  CImage,
 } from '@coreui/react'
 import {
   cilBell,
@@ -20,11 +21,14 @@ import {
   cilUser,
 } from '@coreui/icons'
 import CIcon from '@coreui/icons-react'
+import logo from './../../assets/images/logo/s-logo.png'
 
 const AppHeaderDropdown = () => {
   return (
     <CDropdown variant="nav-item">
-      <CDropdownToggle placement="bottom-end" className="py-0" caret={false}></CDropdownToggle>
+      <CDropdownToggle placement="bottom-end" className="py-0" caret={false}>
+        <CImage src={logo} width={35} height={35} />
+      </CDropdownToggle>
       <CDropdownMenu className="pt-0" placement="bottom-end">
         <CDropdownHeader className="bg-light fw-semibold py-2">Account</CDropdownHeader>
         <CDropdownItem href="#">
