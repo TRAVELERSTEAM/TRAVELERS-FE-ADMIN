@@ -1,3 +1,6 @@
+import React from 'react'
+import { cilUser } from '@coreui/icons'
+import CIcon from '@coreui/icons-react'
 import { CNavGroup, CNavItem, CNavTitle } from '@coreui/react'
 
 const _nav = [
@@ -11,9 +14,14 @@ const _nav = [
     to: '/ui',
   },
   {
-    component: CNavItem,
     name: '로그인',
     to: '/',
+  },
+  {
+    component: CNavItem,
+    name: 'User',
+    to: '/user',
+    icon: <CIcon icon={cilUser} customClassName="nav-icon" />,
   },
   {
     component: CNavGroup,

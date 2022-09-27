@@ -3,6 +3,7 @@ import { Route, Routes, BrowserRouter } from 'react-router-dom'
 import './scss/style.scss'
 import Main from './pages/Main'
 import NotFound from './pages/NotFound'
+import User from './pages/user'
 import Login from './pages/login'
 import ReservationProduct from './components/ReservationProduct'
 
