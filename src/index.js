@@ -1,10 +1,11 @@
-import 'react-app-polyfill/stable'
-import 'core-js'
 import React from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { RecoilRoot } from 'recoil'
+import 'react-app-polyfill/stable'
+import 'core-js'
+
 createRoot(document.getElementById('root')).render(
   <RecoilRoot>
     <App />
