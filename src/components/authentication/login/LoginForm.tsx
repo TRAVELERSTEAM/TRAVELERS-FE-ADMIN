@@ -15,6 +15,8 @@ import {
   FormControlLabel,
 } from '@material-ui/core';
 import { LoadingButton } from '@material-ui/lab';
+import { useMutation } from 'react-query';
+import { loginApi } from '@/api/user/user';
 
 const LoginForm = (): JSX.Element => {
   const navigate = useNavigate();
@@ -25,6 +27,14 @@ const LoginForm = (): JSX.Element => {
     password: Yup.string().required('Password is required'),
   });
 
+  const { mutate } = useMutation('login', loginApi, {
+    onSuccess: (data) => {
+      if (data) {
+        navigate('/dashboard', { replace: true });
+      }
+    },
+  });
+
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -33,6 +43,7 @@ const LoginForm = (): JSX.Element => {
     },
     validationSchema: LoginSchema,
     onSubmit: () => {
+      mutate(formik.values);
       navigate('/dashboard', { replace: true });
     },
   });
