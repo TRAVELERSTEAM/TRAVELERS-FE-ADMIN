@@ -15,7 +15,7 @@ interface RefReturnProps {
   startPage: number;
 }
 
-interface Contents {
+export interface Contents {
   createdAt: string;
   id: number;
   sequence: number;
