@@ -1,12 +1,16 @@
 import axios, { AxiosError } from 'axios';
 import React, { useMemo } from 'react';
-import ReactQuill from 'react-quill';
+import ReactQuill, { Quill } from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import quillEmoji from 'quill-emoji';
+import 'quill-emoji/dist/quill-emoji.css';
 
 const { VITE_APP_ADMIN_APIKEY, VITE_APP_IMAGE_URL } = import.meta.env;
 
 const accessToken = VITE_APP_ADMIN_APIKEY;
 const baseUrl = VITE_APP_IMAGE_URL;
+
+const { EmojiBlot, ShortNameEmoji, ToolbarEmoji, TextAreaEmoji } = quillEmoji;
 
 interface DataProps {
   textData: string | undefined;
@@ -76,12 +80,16 @@ const TextEditor = (prop: DataProps, ref: any) => {
             { indent: '+1' },
             { align: [] },
           ],
+          ['emoji'],
           ['link', 'image'],
         ],
         handlers: {
           image: imageHandler,
         },
       },
+      'emoji-toolbar': true,
+      'emoji-textarea': false,
+      'emoji-shortname': true,
     }),
     [],
   );
@@ -96,6 +104,7 @@ const TextEditor = (prop: DataProps, ref: any) => {
     'underline',
     'strike',
     'blockquote',
+    'emoji',
     'list',
     'bullet',
     'indent',
@@ -109,6 +118,16 @@ const TextEditor = (prop: DataProps, ref: any) => {
   const textHandler = (e: any) => {
     setTextData(e);
   };
+
+  Quill.register(
+    {
+      'formats/emoji': EmojiBlot,
+      'modules/emoji-shortname': ShortNameEmoji,
+      'modules/emoji-toolbar': ToolbarEmoji,
+      'modules/emoji-textarea': TextAreaEmoji,
+    },
+    true,
+  );
 
   return (
     <div>
