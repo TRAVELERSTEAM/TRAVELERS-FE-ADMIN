@@ -68,6 +68,11 @@ const sidebarConfig: NavItemConfig[] = [
     icon: getIcon(shoppingBagFill),
   },
   {
+    title: 'add-reference',
+    path: '/dashboard/add-reference',
+    icon: getIcon(shoppingBagFill),
+  },
+  {
     title: 'review',
     path: '/dashboard/review',
     icon: getIcon(shoppingBagFill),
