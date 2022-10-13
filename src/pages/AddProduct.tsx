@@ -1,14 +1,15 @@
 import React, { useRef, useState } from 'react';
-// import TextEditor from 'src/components/textEditor/TextEditor'
+import TextEditor from '@/components/texteditor/TextEditor';
 
 const AddProduct = () => {
-  // const [value, setValue] = useState(null)
+  const [value, setValue] = useState(undefined);
   const [showImages, setShowImages] = useState<string[]>([]);
   const quillRef = useRef<any>();
 
   const buttonHandler = () => {
-    const desc = quillRef.current.getEditor().getText();
-    console.log(desc);
+    // const desc = quillRef.current.getEditor().getText();
+    // console.log(desc);
+    console.log('넘길 값', value);
   };
 
   // 이미지 상대경로 저장
@@ -81,12 +82,12 @@ const AddProduct = () => {
             </div>
           </div>
           <div>
-            {/* <TextEditor
+            <TextEditor
               ref={quillRef}
-              value={value}
-              setValue={setValue}
+              textData={value}
+              setTextData={setValue}
               placeHolder={'상품 상세 페이지를 작성하세요!'}
-            /> */}
+            />
             <button onClick={buttonHandler}>console</button>
           </div>
         </div>
