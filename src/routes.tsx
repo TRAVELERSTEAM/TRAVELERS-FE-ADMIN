@@ -13,6 +13,7 @@ import ProductList from '@/pages/ProductList';
 import AddProduct from '@/pages/AddProduct';
 import Notice from '@/pages/Notice';
 import Reference from '@/pages/Reference';
+import ReferenceDetail from './pages/ReferenceDetail';
 import AddReference from './pages/AddReference';
 import Review from '@/pages/Review';
 import Blog from '@/pages/Blog';
@@ -37,6 +38,7 @@ export const Router = (): ReactElement => {
         { path: 'add-product', element: <AddProduct /> },
         { path: 'notice', element: <Notice /> },
         { path: 'reference', element: <Reference /> },
+        { path: '/dashboard/reference/:detailId', element: <ReferenceDetail /> },
         { path: 'add-reference', element: <AddReference /> },
         { path: 'review', element: <Review /> },
         { path: 'blog', element: <Blog /> },
