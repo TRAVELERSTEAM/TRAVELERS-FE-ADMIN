@@ -1,4 +1,5 @@
 import {
+  deleteReference,
   DetailReturnProps,
   getRefDetail,
   PutReqProps,
@@ -6,7 +7,7 @@ import {
 } from '@/api/reference/Reference';
 import React, { useEffect, useState, useRef } from 'react';
 import { useMutation, useQuery, useQueryClient } from 'react-query';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { InputRef } from './AddReference';
 import AddNotifyForm from '@/components/AddNotifyForm';
 
@@ -15,8 +16,10 @@ function ReferenceDetail() {
   const reqData = { id: '', updateData: { title: '', content: '' } };
   const [isEditMode, setIsEditMode] = useState(false);
   const { detailId } = useParams();
+  const navigate = useNavigate();
   const queryClient = useQueryClient();
   const [refDetail, setRefDetail] = useState<DetailReturnProps>();
+  // 상세내용 Req
   const { data, isLoading } = useQuery(
     ['refDetail', detailId],
     () => getRefDetail(detailId as string),
@@ -24,20 +27,44 @@ function ReferenceDetail() {
       refetchOnWindowFocus: false,
     },
   );
-  const { mutate } = useMutation('updateRef', (data: PutReqProps) => updateReference(data));
+
+  // 글 수정 Req
+  const { mutate: updateMutate } = useMutation('updateRef', (data: PutReqProps) =>
+    updateReference(data),
+  );
+
+  // 글 삭제 Req
+  const { mutate: deleteMutate } = useMutation(['deleteRef', detailId], (id: string) =>
+    deleteReference(id),
+  );
+
   const addHandler = () => {
     reqData.id = detailId as string;
     reqData.updateData.title = inputRef.current[0].value;
     reqData.updateData.content = inputRef.current[1].value;
-    mutate(reqData, {
+    updateMutate(reqData, {
       onSuccess: () => {
         queryClient.invalidateQueries('refDetail');
       },
     });
     console.log(reqData);
   };
+
   const editModeHandler = () => {
     setIsEditMode(!isEditMode);
+  };
+
+  const deleteHandler = (id: string) => {
+    if (!confirm('이 게시물을 삭제하시겠습니까?')) {
+      return;
+    } else {
+      deleteMutate(id, {
+        onSuccess: () => {
+          queryClient.invalidateQueries('reference');
+        },
+      });
+      navigate(-1);
+    }
   };
 
   useEffect(() => {
@@ -91,6 +118,7 @@ function ReferenceDetail() {
             </table>
           </div>
           <button onClick={editModeHandler}>수정</button>
+          <button onClick={() => deleteHandler(detailId as string)}>삭제</button>
         </>
       )}
     </>

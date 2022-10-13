@@ -116,3 +116,22 @@ export const updateReference = async (payload: PutReqProps): Promise<void> => {
   }
   return console.log(payload);
 };
+
+// DELETE 자료실 글 삭제
+export const deleteReference = async (id: string): Promise<void> => {
+  if (id !== undefined) {
+    try {
+      const { status } = await axios.delete(`${baseUrl}/notify/${id}`, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+      if (status === 200) {
+        console.log(true);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  return console.log('id' + undefined);
+};
