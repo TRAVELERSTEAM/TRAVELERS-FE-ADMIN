@@ -13,12 +13,11 @@ const baseUrl = VITE_APP_IMAGE_URL;
 const { EmojiBlot, ShortNameEmoji, ToolbarEmoji, TextAreaEmoji } = quillEmoji;
 
 interface DataProps {
-  textData: string | undefined;
-  setTextData: React.Dispatch<React.SetStateAction<undefined>>;
-  placeHolder: string;
+  content?: string;
+  placeHolder?: string;
 }
 const TextEditor = (prop: DataProps, ref: any) => {
-  const { textData, setTextData, placeHolder } = prop;
+  const { content, placeHolder } = prop;
 
   const imageHandler = () => {
     // 파일을 업로드 하기 위한 input 태그 생성
@@ -48,13 +47,16 @@ const TextEditor = (prop: DataProps, ref: any) => {
 
           // 커서의 위치를 알고 해당 위치에 이미지 태그를 넣어주는 코드
           // 해당 DOM의 데이터가 필요하기에 props로 받은 ref를 사용한다.
-          const range = ref.current?.getEditor().getSelection()?.index;
+          const range = ref.current[1].getEditor().getSelection()?.index;
           if (range !== null && range !== undefined) {
-            const quill = ref.current?.getEditor();
+            const quill = ref.current[1].getEditor();
 
             quill?.setSelection(range, 1);
 
-            quill?.clipboard.dangerouslyPasteHTML(range, `<img src=${url} alt="이미지" />`);
+            quill?.clipboard.dangerouslyPasteHTML(
+              range,
+              `<span><img src=${url} alt="이미지" /></span>`,
+            );
           }
 
           return { ...data, success: true };
@@ -115,9 +117,6 @@ const TextEditor = (prop: DataProps, ref: any) => {
     'image',
     'formula',
   ];
-  const textHandler = (e: any) => {
-    setTextData(e);
-  };
 
   Quill.register(
     {
@@ -134,15 +133,14 @@ const TextEditor = (prop: DataProps, ref: any) => {
       <ReactQuill
         ref={(element) => {
           if (element !== null) {
-            ref.current = element;
+            ref.current[1] = element;
           }
         }}
         theme="snow"
         modules={modules}
         formats={formats}
-        value={textData}
-        onChange={textHandler}
         placeholder={placeHolder}
+        defaultValue={content}
       ></ReactQuill>
     </div>
   );

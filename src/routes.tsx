@@ -9,10 +9,12 @@ import Login from '@/pages/Login';
 import MainBanner from '@/pages/MainBanner';
 import HotProducts from '@/pages/HotProducts';
 import Products from '@/pages/Products';
-import AddProduct from '@/pages/ProductList';
-import ProductList from '@/pages/AddProduct';
+import ProductList from '@/pages/ProductList';
+import AddProduct from '@/pages/AddProduct';
 import Notice from '@/pages/Notice';
 import Reference from '@/pages/Reference';
+import ReferenceDetail from './pages/ReferenceDetail';
+import AddReference from './pages/AddReference';
 import Review from '@/pages/Review';
 import Blog from '@/pages/Blog';
 import NotFound from '@/pages/Page404';
@@ -36,6 +38,8 @@ export const Router = (): ReactElement => {
         { path: 'add-product', element: <AddProduct /> },
         { path: 'notice', element: <Notice /> },
         { path: 'reference', element: <Reference /> },
+        { path: '/dashboard/reference/:detailId', element: <ReferenceDetail /> },
+        { path: 'add-reference', element: <AddReference /> },
         { path: 'review', element: <Review /> },
         { path: 'blog', element: <Blog /> },
       ],
