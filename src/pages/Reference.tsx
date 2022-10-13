@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getReferenceAll } from '@/api/reference/Reference';
 import { useQuery } from 'react-query';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Contents } from '@/api/reference/Reference';
 
 function Reference() {
@@ -40,7 +40,9 @@ function Reference() {
               return (
                 <tr key={index}>
                   <td>{post.sequence}</td>
-                  <td>{post.title}</td>
+                  <td style={{ cursor: 'pointer' }}>
+                    <Link to={`/dashboard/reference/${post.id}`}>{post.title}</Link>
+                  </td>
                   <td>{post.writer}</td>
                   <td>{post.createdAt}</td>
                 </tr>

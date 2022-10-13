@@ -23,11 +23,6 @@ export interface Contents {
   writer: string;
 }
 
-export interface PostRequestProps {
-  content: string;
-  title: string;
-}
-
 // GET 자료실 데이터 모두 가져오기
 export const getReferenceAll = async (): Promise<GetReturnProps | undefined> => {
   try {
@@ -43,6 +38,11 @@ export const getReferenceAll = async (): Promise<GetReturnProps | undefined> => 
   }
 };
 
+export interface PostRequestProps {
+  content: string;
+  title: string;
+}
+
 // POST 자료실 글 등록
 export const addReference = async (payload: PostRequestProps): Promise<void> => {
   try {
@@ -57,4 +57,38 @@ export const addReference = async (payload: PostRequestProps): Promise<void> => 
   } catch (error) {
     console.log(error);
   }
+};
+
+export interface DetailReturnProps {
+  aroundTitles: AroundTitles[];
+  content: string;
+  createdAt: string;
+  id: number;
+  sequence: number;
+  title: string;
+  writer: string;
+}
+
+interface AroundTitles {
+  id: number;
+  sequence: number;
+  title: string;
+}
+
+// GET 자료실 글 상세정보
+export const getRefDetail = async (id: string): Promise<DetailReturnProps | undefined> => {
+  if (id !== undefined) {
+    try {
+      const { data } = await axios.get(`${baseUrl}/notify/ref-library/${id}`, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+      return data;
+    } catch (error) {
+      console.log('에러 발생!', error);
+      return;
+    }
+  }
+  return;
 };
