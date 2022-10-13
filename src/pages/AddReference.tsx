@@ -3,7 +3,7 @@ import AddNotifyForm from '@/components/AddNotifyForm';
 import { useMutation, useQueryClient } from 'react-query';
 import { addReference, PostRequestProps } from '@/api/reference/Reference';
 
-interface InputRef {
+export interface InputRef {
   value: string;
 }
 

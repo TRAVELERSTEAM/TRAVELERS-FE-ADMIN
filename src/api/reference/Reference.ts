@@ -92,3 +92,27 @@ export const getRefDetail = async (id: string): Promise<DetailReturnProps | unde
   }
   return;
 };
+
+export interface PutReqProps {
+  updateData: PostRequestProps;
+  id: string;
+}
+// PUT 자료실 글 수정
+export const updateReference = async (payload: PutReqProps): Promise<void> => {
+  if (payload !== undefined) {
+    const { id, updateData } = payload;
+    try {
+      const { status } = await axios.put(`${baseUrl}/notify/${id}`, updateData, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+      if (status === 201) {
+        console.log(true);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  return console.log(payload);
+};

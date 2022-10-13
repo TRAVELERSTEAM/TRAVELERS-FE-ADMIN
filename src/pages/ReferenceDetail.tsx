@@ -1,14 +1,21 @@
-import { DetailReturnProps, getRefDetail } from '@/api/reference/Reference';
+import {
+  DetailReturnProps,
+  getRefDetail,
+  PutReqProps,
+  updateReference,
+} from '@/api/reference/Reference';
 import React, { useEffect, useState, useRef } from 'react';
-import { useQuery } from 'react-query';
+import { useMutation, useQuery, useQueryClient } from 'react-query';
 import { useParams } from 'react-router-dom';
 import { InputRef } from './AddReference';
 import AddNotifyForm from '@/components/AddNotifyForm';
 
 function ReferenceDetail() {
   const inputRef = useRef<InputRef[]>([]);
+  const reqData = { id: '', updateData: { title: '', content: '' } };
   const [isEditMode, setIsEditMode] = useState(false);
   const { detailId } = useParams();
+  const queryClient = useQueryClient();
   const [refDetail, setRefDetail] = useState<DetailReturnProps>();
   const { data, isLoading } = useQuery(
     ['refDetail', detailId],
@@ -17,7 +24,18 @@ function ReferenceDetail() {
       refetchOnWindowFocus: false,
     },
   );
-
+  const { mutate } = useMutation('updateRef', (data: PutReqProps) => updateReference(data));
+  const addHandler = () => {
+    reqData.id = detailId as string;
+    reqData.updateData.title = inputRef.current[0].value;
+    reqData.updateData.content = inputRef.current[1].value;
+    mutate(reqData, {
+      onSuccess: () => {
+        queryClient.invalidateQueries('refDetail');
+      },
+    });
+    console.log(reqData);
+  };
   const editModeHandler = () => {
     setIsEditMode(!isEditMode);
   };
@@ -33,10 +51,15 @@ function ReferenceDetail() {
       {isEditMode ? (
         <>
           <div>
-            <AddNotifyForm ref={inputRef} place={'자료실'} title={''} content={''} />
+            <AddNotifyForm
+              ref={inputRef}
+              place={'게시글 수정'}
+              title={refDetail?.title}
+              content={refDetail?.content}
+            />
           </div>
           <button onClick={editModeHandler}>취소</button>
-          <button>등록</button>
+          <button onClick={() => (addHandler(), editModeHandler())}>등록</button>
         </>
       ) : (
         <>
