@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseUrl = import.meta.env.VITE_APP_BASE_API;
+const baseUrl = import.meta.env.VITE_APP_BASE_URL;
 
 export interface LoginPayload {
   email: string;
