@@ -82,11 +82,13 @@ const FilterArea = styled('div')({
 });
 
 const Contant = styled('div')(({ theme }) => ({
-  margin: '0 auto',
   width: '100%',
   display: 'grid',
   gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-  gap: '24px 40px',
+  gap: '24px 16px',
+  [theme.breakpoints.down('lg')]: {
+    gridTemplateColumns: 'repeat(3, 1fr)',
+  },
   [theme.breakpoints.down('md')]: {
     gridTemplateColumns: 'repeat(2, 1fr)',
   },
@@ -97,4 +99,12 @@ const Card = styled('div')({
   borderRadius: '5px',
   overflow: 'hidden',
   boxShadow: '1px 1px 4px rgba(0, 0, 0, .2)',
+  img: {
+    transition: 'all .3s ease',
+  },
+  '&:hover': {
+    img: {
+      transform: 'scale(1.05)',
+    },
+  },
 });
