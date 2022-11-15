@@ -36,6 +36,7 @@ export default ProductCardLayout;
 
 const ImgBox = styled('div')({
   width: '100%',
+  overflow: 'hidden',
 });
 
 const Desc = styled('div')(({ theme }) => ({
