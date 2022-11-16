@@ -45,7 +45,6 @@ function ProductList() {
         >
           <option value="all">== 카테고리 ==</option>
           <option value="5070끼리">5070끼리</option>
-          <option value="3040끼리">3040끼리</option>
           <option value="2040끼리">2040끼리</option>
           <option value="남자끼리">남자끼리</option>
           <option value="여자끼리">여자끼리</option>
