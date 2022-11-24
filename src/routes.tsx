@@ -19,6 +19,7 @@ import Review from '@/pages/Review';
 import Blog from '@/pages/Blog';
 import NotFound from '@/pages/Page404';
 import UserEdit from './pages/UserEdit';
+import ProductDetail from './pages/ProductDetail';
 
 export const Router = (): ReactElement => {
   return useRoutes([
@@ -35,6 +36,7 @@ export const Router = (): ReactElement => {
         { path: 'hot-product', element: <HotProducts /> },
         { path: 'products', element: <Products /> },
         { path: 'product-list', element: <ProductList /> },
+        { path: '/dashboard/product-list/:detailId', element: <ProductDetail /> },
         { path: 'add-product', element: <AddProduct /> },
         { path: 'notice', element: <Notice /> },
         { path: 'reference', element: <Reference /> },

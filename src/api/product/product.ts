@@ -1,4 +1,4 @@
-import axios, { AxiosError } from 'axios';
+import axios from 'axios';
 
 const { VITE_APP_ADMIN_APIKEY, VITE_APP_BASE_URL } = import.meta.env;
 const baseUrl = VITE_APP_BASE_URL;
@@ -34,4 +34,23 @@ export const getAllProduct = async () => {
     console.log(error);
     return;
   }
+};
+
+export const getProductDetail = async (
+  id: string | undefined,
+): Promise<void | ProductPrice | Error> => {
+  if (id) {
+    try {
+      const res = await axios.get(`${baseUrl}/product/${id}`, {
+        headers: {
+          Authorization: `Bearer ${VITE_APP_ADMIN_APIKEY}`,
+        },
+      });
+
+      return res.data;
+    } catch (error) {
+      throw `${error}`;
+    }
+  }
+  return;
 };
