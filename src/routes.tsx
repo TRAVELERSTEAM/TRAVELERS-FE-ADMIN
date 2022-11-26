@@ -36,7 +36,7 @@ export const Router = (): ReactElement => {
         { path: 'hot-product', element: <HotProducts /> },
         { path: 'products', element: <Products /> },
         { path: 'product-list', element: <ProductList /> },
-        { path: '/dashboard/product-list/:detailId', element: <ProductDetail /> },
+        { path: 'product/detail/:detailId', element: <ProductDetail /> },
         { path: 'add-product', element: <AddProduct /> },
         { path: 'notice', element: <Notice /> },
         { path: 'reference', element: <Reference /> },
